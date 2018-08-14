@@ -1,0 +1,312 @@
+@import 'base/variables';
+@import 'base/bootstrap_variables';
+@import 'mixins/breakpoints';
+
+body {
+    background-color: #F7F7F7; //overflow-y: hidden;
+    font-family: "open sans";
+}
+
+input {
+    font-family: "open sans";
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0px;
+}
+
+/* ANIMATIONS  */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -100%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slideInLeft {
+    animation-name: slideInLeft;
+  }
+
+  @keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+}
+/* ANIMATIONS  */
+
+
+/*** Content LHS ***/
+#content_lhs {
+    height: 150vh;
+    background-color: #666;
+}
+/*** Content LHS ***/
+
+/*** Sidebar ***/
+#sidebar {
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    right: 0;
+    //overflow: auto;
+
+    /* Sidebar Header */
+    &__header {
+        height: 75px;
+        padding: 20px;
+
+        #category_name {
+            h2 {
+                font-weight: 600;
+                color: #000;
+                font-family: "open sans";
+                font-size: 17px;
+            }   
+        }
+
+        i {
+            color: #000;
+        }
+    }
+    /* Sidebar Header */
+
+    /* Sidebar Image */
+    &__image {
+        height: 180px;
+        padding: 0px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    /* Sidebar Image */
+
+    /* Sidebar Item Name */
+    &__item_name {
+        height: 60px;
+        background-color: #F8D24B;
+        color: #000;
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    /* Sidebar Item Name */
+
+    /* Sidebar Menu */
+    &__menu {
+        height: 60px;
+        background-color: #F7F7F7;
+        padding: 0px;
+
+        ul{
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            list-style: none;
+            overflow: auto;
+            display: flex;
+            
+          }
+          
+          li{
+            position: relative;
+            font-family: 'poppins', sans-serif;
+            font-size: 15px;
+            display: inline-block;
+            padding: 0px;
+            color: #000;
+            font-weight: 600;
+            width: auto;
+            min-width: 100px;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            outline: none;
+          }
+          
+          a{
+            text-decoration: none;
+            color: #747474;
+            padding: 0px 15px;
+            outline: none;
+          }
+          
+          .link{
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-right: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-weight: 600;
+          }
+
+          .link.active {
+              color: #000;
+          }
+          
+          .link:after{
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            width: 0;
+            height: 3px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #f7f7f7;
+            transition: width .2s ease;
+            -webkit-transition: width .2s ease;
+          }
+           
+          .link:hover:after{
+            width: 100%;
+            left: 0;
+            background: #FF8800;
+          }    
+
+          .link:hover {
+            color: #000;
+          }
+                
+          .link.active:after{
+            width: 100%;
+            left: 0;
+            background: #FF8800;
+          }          
+    }
+    /* Sidebar Menu */
+
+    /* Sidebar Content */
+    .sidebar__content {
+        width: 100%;
+        //min-height: 500px;
+        height: calc(100vh - 375px);
+        padding: 30px 15px;
+        overflow-y: auto;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        .content_div {
+            margin-bottom: 30px;
+            h5 {
+                font-family: "poppins";
+                font-weight: 600;
+                font-size: 15px;
+            }
+
+            &__container {
+                margin-top: 10px;
+
+                &.image_container {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                }
+
+                .image_div {
+                    width: 110px;
+                    display: inline-block;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 14px;
+                    line-height: 1.75em;
+                    color: #464646;
+                }
+            }
+        }
+    }
+    /* Sidebar Content */
+}
+/*** Sidebar ***/
