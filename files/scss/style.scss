@@ -288,8 +288,9 @@ h1, h2, h3, h4, h5, h6 {
                 margin-top: 10px;
 
                 &.image_container {
-                    overflow-x: auto;
+                    overflow-x: scroll;
                     overflow-y: hidden;
+                    white-space: nowrap;
                 }
 
                 .image_div {

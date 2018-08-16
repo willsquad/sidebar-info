@@ -60,9 +60,14 @@ $(document).ready(function(){
     }); */
 
 
-        $(".sidebar__content").mCustomScrollbar({
-            theme:"minimal-dark"
-        });
+    $(".sidebar__content").mCustomScrollbar({
+        theme:"minimal-dark"
+    });
+
+    $(".image_container").mCustomScrollbar({
+        axis: "x",
+        theme:"minimal-dark"
+    });
 
 
     $('.link').on('click', function(e){
