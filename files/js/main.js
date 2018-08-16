@@ -86,4 +86,28 @@ $(document).ready(function(){
         $('.sidebar__content').removeClass('active');
         $('#sidebar__content_'+id).addClass('active');
     });
+
+
+    $(document).on('scroll', function(){
+        if($('#projects').visible(true)) {
+            console.log('Projects');
+        } else {
+            console.log('Not found');
+        }
+
+        /* if(location == 'intro') {
+                console.log('Intro in view');
+           } else if(location == 'about') {
+                console.log('About in view');
+           } else if(location == 'projects') {
+                console.log('Projects in view');
+           } else if(location == 'location') {
+                console.log('Location in view');
+           } else if(location == 'contact') {
+                console.log('Contact in view');
+           } else {
+               console.log('No divs in view.');
+           } */
+    });
+    
 });
