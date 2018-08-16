@@ -69,6 +69,11 @@ $(document).ready(function(){
         theme:"minimal-dark"
     });
 
+   /*  $("#sidebar__menu").mCustomScrollbar({
+        axis: "x",
+        theme:"minimal-dark"
+    }); */
+
 
     $('.link').on('click', function(e){
         e.preventDefault();

@@ -117,8 +117,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /*** Content LHS ***/
 #content_lhs {
-    height: 150vh;
-    background-color: #666;
+    min-height: 150vh;
+    //background-color: #666;
+
+    .lhs_section_div {
+        height: 75vh;
+    }
+
+    #intro {
+        background-color: #375e97;
+    }
+    #about {
+        background-color: #fb6542;
+    }
+    #projects {
+        background-color: #ffbb00;
+    }
+    #location {
+        background-color: #3f681c;
+    }
+    #contact {
+        background-color: #fb6542;
+    }
 }
 /*** Content LHS ***/
 
@@ -181,13 +201,15 @@ h1, h2, h3, h4, h5, h6 {
         height: 60px;
         background-color: #F7F7F7;
         padding: 0px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
 
         ul{
             width: 100%;
             height: 100%;
             padding: 0px;
             list-style: none;
-            overflow: auto;
             display: flex;
             
           }
@@ -201,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
             color: #000;
             font-weight: 600;
             width: auto;
-            min-width: 100px;
+            //min-width: 100px;
             display: flex;
             align-items: center;
             height: 60px;
@@ -225,6 +247,7 @@ h1, h2, h3, h4, h5, h6 {
             font-weight: 400;
             transition: all 0.3s ease;
             font-weight: 600;
+            white-space: nowrap;
           }
 
           .link.active {
@@ -298,6 +321,10 @@ h1, h2, h3, h4, h5, h6 {
                     display: inline-block;
                     margin-right: 10px;
                     margin-bottom: 10px;
+
+                    @include media-breakpoint-down(md) {
+                        width: 90px;
+                    }
                 }
 
                 p {
