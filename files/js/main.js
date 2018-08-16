@@ -59,12 +59,14 @@ $(document).ready(function(){
           }
     }); */
 
-    /* $(window).on("load",function(){
-        $("#sidebar").mCustomScrollbar({
-        });
-    }); */
 
-    $('.link').on('click', function(){
+        $(".sidebar__content").mCustomScrollbar({
+            theme:"minimal-dark"
+        });
+
+
+    $('.link').on('click', function(e){
+        e.preventDefault();
         var self = $(this);
         var id = self.attr('data-id');
 
