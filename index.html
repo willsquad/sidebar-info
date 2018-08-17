@@ -9,8 +9,9 @@
             Sidebar Info
         </title>
         <link rel="stylesheet" href="files/css/bootstrap.css">
-        <link rel="stylesheet" href="files/css/style.css">
         <link rel="stylesheet" href="files/css/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="files/css/lightbox.min.css">
+        <link rel="stylesheet" href="files/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,500,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -22,19 +23,19 @@
         <div class="row">
             <div class="col-12 col-md-8 col-lg-9" id="content_lhs">
                 <div class="row">
-                    <div id="intro" class="lhs_section_div col-12" data-id="intro">
+                    <div id="intro" class="lhs_section_div col-12" data-id="intro" data-h2="Intro" data-item="Intro item #1" data-img="files/images/project_img1.jpg" data-about="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, aliquid!" data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi veritatis saepe modi?" data-photos="0" data-more="1">
                         <h2>Intro</h2>
                     </div>
-                    <div id="about" class="lhs_section_div col-12"  data-id="about">
+                    <div id="about" class="lhs_section_div col-12"  data-id="about" data-h2="About" data-item="About item #2" data-img="files/images/project_img2.jpg" data-about="Ipsum dolor sit amet lorem consectetur adipisicing elit. Aliquid eaque." data-description="Consectetur adipisicing elit. Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi veritatis saepe modi?" data-photos="0" data-more="0">
                         <h2>About</h2>
                     </div>
-                    <div id="projects" class="lhs_section_div col-12" data-id="projects">
+                    <div id="projects" class="lhs_section_div col-12" data-id="projects" data-h2="Projects" data-item="Projects item #3" data-img="files/images/project_img3.jpg" data-about="Lorem consectetur adipisicing elit ipsum dolor sit amet. Eaque, aliquid!" data-description="Ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorumdi veritatis." data-photos="1" data-more="0">
                         <h2>Projects</h2>
                     </div>
-                    <div id="location" class="lhs_section_div col-12" data-id="location">
+                    <div id="location" class="lhs_section_div col-12" data-id="location" data-h2="Location" data-item="Location item #4" data-img="files/images/project_img4.jpg" data-about="Ipsum dolor sit amet lorem consectetur adipisicing elit. Aliquid eaque." data-description="Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi saepe modi." data-photos="0" data-more="1">
                         <h2>Location</h2>
                     </div>
-                    <div id="contact" class="lhs_section_div col-12" data-id="contact">
+                    <div id="contact" class="lhs_section_div col-12" data-id="contact" data-h2="Contact" data-item="Contact item #5" data-img="files/images/project_img1.jpg" data-about="Lorem consectetur adipisicing elit ipsum dolor sit amet. Eaque, aliquid!" data-description="Libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi veritatis saepe modi." data-photos="0" data-more="0">
                         <h2>Contact</h2>
                     </div>
                 </div>
@@ -46,7 +47,7 @@
                     <!-- Sidebar Header -->
                     <div id="sidebar__header" class="col-12 d-flex align-items-center justify-content-between">
                         <div id="category_name">
-                            <h2>Category Name</h2>
+                            <h2 id="category_name__h2">Intro</h2>
                         </div>
                         <div id="header_close" class="d-flex">
                            
@@ -56,13 +57,13 @@
 
                     <!-- Sidebar Image -->
                     <div id="sidebar__image" class="col-12">
-                        <img src="files/images/project_img1.jpg" alt="">
+                        <img id="sidebar__image__img" src="files/images/project_img1.jpg" alt="">
                     </div>
                     <!-- Sidebar Image -->
 
                     <!-- Sidebar Item Name -->
                     <div id="sidebar__item_name" class="col-12 d-flex align-items-center justify-content-center">
-                        <h3>Item Name #1</h3>
+                        <h3 id="sidebar__item_name__h3">Intro item #1</h3>
                     </div>
                     <!-- Sidebar Item Name -->
 
@@ -78,26 +79,38 @@
                     <!-- Sidebar Content -->
                     <div id="sidebar__content_1" class="sidebar__content active col-12 animated fadeIn">
                         <!-- Sidebar Content Div -->
-                        <div class="content_div">
+                        <div id="photos_div" class="content_div">
                             <h5>Photo</h5>
                             <div class="content_div__container image_container">
                                 <div class="image_div">
-                                    <img src="files/images/project_img2.jpg" alt="">
+                                    <a href="files/images/project_img2.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img2.jpg" alt="">
+                                    </a>
                                 </div>
                                 <div class="image_div">
-                                    <img src="files/images/project_img3.jpg" alt="">
+                                    <a href="files/images/project_img3.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img3.jpg" alt="">
+                                    </a>
                                 </div>
                                 <div class="image_div">
-                                    <img src="files/images/project_img4.jpg" alt="">
+                                    <a href="files/images/project_img4.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img4.jpg" alt="">
+                                    </a>
                                 </div>
                                 <div class="image_div">
-                                    <img src="files/images/project_img1.jpg" alt="">
+                                    <a href="files/images/project_img1.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img1.jpg" alt="">
+                                    </a>
                                 </div>
                                 <div class="image_div">
-                                    <img src="files/images/project_img2.jpg" alt="">
+                                    <a href="files/images/project_img2.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img2.jpg" alt="">
+                                    </a>
                                 </div>
                                 <div class="image_div">
-                                    <img src="files/images/project_img3.jpg" alt="">
+                                    <a href="files/images/project_img3.jpg" data-lightbox="projects">
+                                        <img src="files/images/project_img3.jpg" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +119,7 @@
                         <div class="content_div">
                             <h5>About</h5>
                             <div class="content_div__container">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, aliquid!</p>
+                                <p id="about_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, aliquid!</p>
                             </div>
                         </div>
                         <!-- Sidebar Content Div -->
@@ -114,12 +127,12 @@
                         <div class="content_div">
                             <h5>Description</h5>
                             <div class="content_div__container">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi veritatis saepe modi?</p>
+                                <p id="description_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque libero consequatur molestias mollitia explicabo, laborum, aut dolorum suscipit voluptatem repellat necessitatibus quibusdam magni nesciunt vel eligendi veritatis saepe modi?</p>
                             </div>
                         </div>
                         <!-- Sidebar Content Div -->
                         <!-- Sidebar Content Div -->
-                        <div class="content_div">
+                        <div id="more_details" class="content_div">
                             <h5>More Details</h5>
                             <div class="content_div__container">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsam rerum nisi consequatur blanditiis ea dolores maxime reiciendis placeat! Hic provident totam dolor debitis sunt similique deleniti unde deserunt nesciunt alias excepturi molestias, vero, doloribus eveniet quas cumque? Deleniti vero natus aliquid nemo omnis voluptatibus similique nisi consequatur doloribus illum!</p>
@@ -157,10 +170,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="files/js/jquery.mCustomScrollbar.min.js"></script>
-<script src="files/js/jquery.visible.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="files/js/lightbox.min.js"></script>
 <script src="files/js/main.js"></script>
 
 </html>
