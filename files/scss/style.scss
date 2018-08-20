@@ -133,20 +133,8 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 
-    #intro {
-        background-color: #375e97;
-    }
-    #about {
-        background-color: #fb6542;
-    }
-    #projects {
-        background-color: #ffbb00;
-    }
-    #location {
-        background-color: #3f681c;
-    }
-    #contact {
-        background-color: #fb6542;
+    .news_article_div {
+        background-color: #fff;
     }
 }
 /*** Content LHS ***/
@@ -157,6 +145,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #fff;
     position: fixed;
     right: 0;
+    box-shadow: rgba(0,0,0,0.1) 0px 0px 40px 0px;
     //overflow: auto;
 
     /* Sidebar Header */
