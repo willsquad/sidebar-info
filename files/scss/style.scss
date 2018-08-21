@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     //background-color: #666;
 
     .lhs_section_div {
-        min-height: 75vh;
+        min-height: 100vh;
 
         h2 {
             font-family: poppins;
@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .news_article_div {
         background-color: #fff;
-        margin-bottom: 15px;
+        margin-top: 15px;
         padding: 30px;
 
         .article_title_h3 {
@@ -237,9 +237,11 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Sidebar Item Name */
     &__item_name {
-        min-height: 60px;
-        background-color: #F8D24B;
-        color: #000;
+        /* min-height: 60px;
+        background-color: #F8D24B; */
+        min-height: 70px;
+        background-color: #242424;
+        color: #fff;
 
         h3 {
             font-size: 16px;

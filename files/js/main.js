@@ -98,6 +98,12 @@ $(document).ready(function(){
         return elementTop >= viewportTop && elementBottom <= viewportBottom;
     };
 
+    $.fn.isOnScreen = function(){
+        var element = this.get(0);
+        var bounds = element.getBoundingClientRect();
+        return bounds.top < window.innerHeight && bounds.bottom > 0;
+    }
+
    /*  $.fn.isInViewport = function() {
         var elementTop = $(this).offset().top;
         var elementBottom = elementTop + $(this).outerHeight();
@@ -113,11 +119,27 @@ $(document).ready(function(){
         $('.lhs_section_div').each(function() {
 
             self = $(this);
+            var category = self.attr('data-category');
+            var title = self.attr('data-title');
+            var author = self.attr('data-author');
+            var authorimg = self.attr('data-authorimg');
+            var tags = self.attr('data-tags');
+            var date = self.attr('data-date');
+            var readtime = self.attr('data-readtime');
+            var images = self.attr('data-images');
+            var summary = self.attr('data-summary');
+            var main_img = self.attr('data-mainimg');
+            var link = self.attr('data-link');
 
-
-            if ($(this).isFullyInViewport()) {
-
-                
+            if ($(this).isOnScreen() || $(this).isOnScreen()) {
+                $('#category_name__h2').html(category);
+                $('#sidebar__news_title').html(title);
+                $('#sidebar__image').find('img').attr('src', main_img);
+                $('#author_name_container').find('img').attr('src', authorimg);
+                $('#author_name_container').find('img').attr('title', author);
+                $('#date_text').html(date);
+                $('#read_time_text').html(readtime);
+                $('#summary_text').html(summary);
             } 
             /*if ($(this).isFullyInViewport()) {
                 console.log('Visible Div : '+location);
