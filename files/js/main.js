@@ -1,21 +1,5 @@
 $(document).ready(function(){
 
-
-    $(".sidebar__content").mCustomScrollbar({
-        theme:"minimal-dark"
-    });
-
-    $(".image_container").mCustomScrollbar({
-        axis: "x",
-        theme:"minimal-dark"
-    });
-
-   /*  $("#sidebar__menu").mCustomScrollbar({
-        axis: "x",
-        theme:"minimal-dark"
-    }); */
-
-
     $('.link').on('click', function(e){
         e.preventDefault();
         var self = $(this);
@@ -78,6 +62,12 @@ $(document).ready(function(){
                 tags_output += '<a href="'+tags_split[i]+'">#'+tags_split[i]+'</a> ';
             }
 
+            var images_split = images.split(" ");
+            images_output = "";
+            for(i=0; i<images_split.length; i++){
+                images_output += '<div class="image_div"><a href="'+images_split[i]+'" data-lightbox="news"><img src="'+images_split[i]+'" alt="News Images"></a></div>';
+            }
+
             if ($(this).isFullyInViewport() || $(this).isOnScreen()) {
                 $('#category_name__h2').html(category);
                 $('#sidebar__news_title').html(title);
@@ -89,6 +79,7 @@ $(document).ready(function(){
                 $('#summary_text').html(summary);
                 $('#go_to_article_button').attr('href', link);
                 $('#tags_output_p').html(tags_output);
+                $('#news_rhs_image_container').html(images_output);
             } 
             /*if ($(this).isFullyInViewport()) {
                 console.log('Visible Div : '+location);
@@ -105,6 +96,22 @@ $(document).ready(function(){
         } else {
             console.log('Not found');
         }
+    }); */
+
+    
+
+    $(".sidebar__content").mCustomScrollbar({
+        theme:"minimal-dark"
+    });
+
+    $(".image_container").mCustomScrollbar({
+        axis: "x",
+        theme:"minimal-dark"
+    });
+
+   /*  $("#sidebar__menu").mCustomScrollbar({
+        axis: "x",
+        theme:"minimal-dark"
     }); */
     
 });
