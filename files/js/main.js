@@ -50,11 +50,30 @@ $(document).ready(function(){
                 self = $(this);
                 var section = self.attr('data-id');
                 var main_img = self.attr('data-img');
+                var content = self.data('content');
+                //var content_parse = JSON.parse(content);
+                var content_parse = eval('(' + content+ ')');;
+                
 
     
                 if ($(this).isFullyInViewport()) {
                     $('#sidebar__news_title').html(section);
-                    $('#sidebar__image').find('img').attr('src', main_img);
+                    if(main_img != '') {
+                        $('#sidebar__image').show();
+                        $('#sidebar__image').find('img').attr('src', main_img);
+                    } else {
+                        $('#sidebar__image').hide();
+                    }
+                    console.log(typeof(content_parse));
+                    var generated_content = '';
+                    for(key in content_parse) {
+                        generated_content += '<div class="content_div animated fadeIn"><h5>'+key+'</h5><div class="content_div__container"><p id="">'+content_parse[key]+'</p></div></div>';
+                    }
+                    //console.log(generated_content);
+
+
+                    $('#generated_content').html(generated_content);
+                    
                 } 
                 /*if ($(this).isFullyInViewport()) {
                     console.log('Visible Div : '+location);
