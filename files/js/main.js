@@ -51,8 +51,9 @@ $(document).ready(function(){
                 var section = self.attr('data-id');
                 var main_img = self.attr('data-img');
                 var content = self.data('content');
-                //var content_parse = JSON.parse(content);
-                var content_parse = eval('(' + content+ ')');;
+                //var content_parse = JSON.parse(content); (won't work)
+                //var content_parse = eval('(' + content+ ')');
+                var content_parse = JSON.parse(content.replace(/'/g, '"'));
                 
 
     
