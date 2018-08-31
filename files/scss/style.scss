@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Sidebar Header */
     &__header {
-        height: 75px;
+        height: 65px;
         padding: 20px;
 
         #category_name {
@@ -246,8 +246,9 @@ h1, h2, h3, h4, h5, h6 {
     &__item_name {
         /* min-height: 60px;
         background-color: #F8D24B; */
-        min-height: 70px;
-        background-color: #242424;
+        min-height: 60px;
+        //background-color: #F44336;
+        background-color: #CC461B;
         color: #fff;
 
         h3 {
@@ -352,93 +353,153 @@ h1, h2, h3, h4, h5, h6 {
     .sidebar__content {
         width: 100%;
         //min-height: 500px;
-        height: calc(100vh - 375px);
-        padding: 30px 15px;
+        height: calc(100vh - 305px);
+        padding: 25px 15px;
         overflow-y: auto;
         display: none;
+        background-color: #E8E8E8;
 
         &.active {
             display: block;
         }
 
-        #photos_div {
-            display: none;
-            img {
-                max-height: 75px;
-                min-height: 75px;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-
-        #news_tags {
-            p {
-                font-weight: 500;
-                word-spacing: 15px;
-            }
-        }
-    
-
         .content_div {
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            padding: 10px;
+            //min-height: 100px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
 
-            .author_name_container {
-                img {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50px;
-                    margin-right: 10px;
+            &.active {
+                height: auto;
+                padding-bottom: 15px;
+
+                .img_text_container {
+                    display: block;
                 }
 
-                p {
-                    margin-bottom: 0px;
-                }
-            }
-            h5 {
-                font-family: "poppins";
-                font-weight: 600;
-                font-size: 15px;
-            }
-
-            &__container {
-                margin-top: 10px;
-
-                &.image_container {
-                    overflow-x: scroll;
-                    overflow-y: hidden;
-                    white-space: nowrap;
-                }
-
-                .image_div {
-                    width: 110px;
-                    display: inline-block;
-                    margin-right: 10px;
+                .card_img {
+                    width: 100%;
                     margin-bottom: 10px;
+                    transition: all 0.3s ease;
+                    padding: 0px 0px 0px 0px;
+                    img {
+                        min-height: 150px;
+                        width: 100%;
+                        object-fit: cover;
+                        transition: all 0.3s ease;
+                    } 
+                }
+    
+    
+                .card_text {
+                    width: 100%;
+                    padding: 0px 0px 0px 0px;
+                    display: flex;
+                    flex-direction: column;
+                    transition: all 0.3s ease;
+                    //justify-content: space-between;
+                }
 
-                    @include media-breakpoint-down(md) {
-                        width: 90px;
+                .card_description {
+                    transition: all 0.3s ease;
+                    height: auto;
+                    overflow: auto;
+                }
+
+                .card_expand_icon {
+                    padding: 6px 7px;
+                    border-radius: 25px;
+                    background-color: #FF5722;
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        color: #fff;
+                        font-size: 13px;
                     }
                 }
 
-                p {
-                    font-size: 14px;
-                    line-height: 1.75em;
-                    color: #464646;
+                .card_expand_icon {
+                    right: 0px;
                 }
             }
-        }
 
-        #go_to_article_button {
-            margin-top: 5px;
-            font-size: 12px;
-            background-color: #FF5722;
-            color: #fff;
-            font-family: poppins;
-            padding: 8px 10px;
-            border: none;
-            outline: none;
-            display: inline-block;
-            text-decoration: none;
+            .img_text_container {
+                width: 100%;
+                display: flex;
+                position: relative;
+            }
+
+            .card_img {
+                width: 24%;
+                padding: 0px 15px 0px 0px;
+                transition: all 0.3s ease;
+                img {
+                    min-height: 80px;
+                    max-height: 80px;
+                    width: 100%;
+                } 
+            }
+
+
+            .card_text {
+                width: 76%;
+                //padding: 0px 0px 0px 15px;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                //justify-content: space-between;
+            }
+
+            .card_heading {
+                margin-bottom: 10px;
+                position: relative;
+            }
+
+            .card_description {
+                height: 40px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .card_expand_icon {
+                position: absolute;
+                right: 5px;
+                top: 0px;
+                cursor: pointer;
+
+                i {
+                    color: #FF5722;
+                }
+            }
+
+            .card_more_icon {
+                position: absolute;
+                right: 15px;
+                bottom: 20px;
+
+                i{
+                    color: #666;
+                }
+            }
+
+
+            h5 {
+                font-family: "open sans";
+                font-weight: 600;
+                font-size: 15px;
+                margin: 5px 0px;
+                color: #000;
+            }
+
+            p {
+                font-size: 13px;
+                margin-bottom: 0px;
+            }
+
         }
     }
     /* Sidebar Content */

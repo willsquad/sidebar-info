@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>
-            Sidebar Info v3
+            Sidebar Info v6
         </title>
         <link rel="stylesheet" href="files/css/bootstrap.css">
         <link rel="stylesheet" href="files/css/jquery.mCustomScrollbar.min.css">
@@ -21,10 +21,10 @@
     <div class="container-fluid">
         <!-- START OF MAIN ROW -->
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-9" id="content_lhs">
+            <div class="col-12 col-md-7 col-lg-8 col-xl-9" id="content_lhs">
                 <div class="row">
                     <!-- Wiki Article Div -->
-                    <div class="lhs_section_div wiki_article_div col-12" data-id="Intro" data-img="files/images/kerala.jpg" data-content="{'Country':'India','Statehood':'1 November 1956','Capital':'Thiruvananthapuram','Population':'33,387,677','Demonym':'Keralite, Keralan, Malayali','Website':'http://kerala.gov.in'}">
+                    <div class="lhs_section_div wiki_article_div col-12" data-id="Intro" data-img="files/images/kerala.jpg" data-content="{'Malayalam':'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ea omnis amet nemo, voluptates a voluptas eos, incidunt ab, maiores iste sint dolorem placeat ullam reiciendis quas fuga neque maxime.','Arabian Sea':'Dolor sit amet, consectetur adipisicing elit. Nobis nulla cupiditate non ipsa impedit, illum provident, earum distinctio aut accusantium animi, hic assumenda totam quisquam rerum expedita quo iste dolorem eaque debitis odit sint. Maiores quis beatae asperiores hic qui!'}">
                         <div class="article_title">
                             <h3 class="article_title_h3">Kerala</h3>
                         </div>
@@ -53,7 +53,7 @@
                     <!-- Wiki Article Div -->
 
                     <!-- Wiki Article Div -->
-                    <div class="lhs_section_div wiki_article_div col-12" data-id="Geography" data-img="" data-content="{'Climate':'Kerala, which lies in the tropic region, is mostly subject to the type of humid tropical wet climate experienced by most of Earth\'s rain forests.','Mountains':'The Western Ghats is a continuous mountain range of 450 km along the eastern side of Kerala.','Rivers':'There are 44 rivers in Kerala, all but three originating in the Western Ghats.[1] 41 of them flow westward and 3 eastward','Natural Hazards':'Landslides, Flooding, Lightning, Drought, Tsunami.'}">
+                    <div class="lhs_section_div wiki_article_div col-12" data-id="Geography" data-img="files/images/geography.jpeg" data-content="{'Climate':'Kerala, which lies in the tropic region, is mostly subject to the type of humid tropical wet climate experienced by most of Earth\'s rain forests.','Mountains':'The Western Ghats is a continuous mountain range of 450 km along the eastern side of Kerala.','Rivers':'There are 44 rivers in Kerala, all but three originating in the Western Ghats.[1] 41 of them flow westward and 3 eastward','Natural Hazards':'Landslides, Flooding, Lightning, Drought, Tsunami.'}">
                         <div class="article_title">
                             <h3 class="article_title_h5">Geography</h3>
                         </div>
@@ -67,7 +67,7 @@
             </div>
 
             <!-- Sidebar -->
-            <div class="col-12 col-md-4 col-lg-3" id="sidebar">
+            <div class="col-12 col-md-5 col-lg-4 col-xl-3" id="sidebar">
                 <div class="row">
                     <!-- Sidebar Header -->
                     <div id="sidebar__header" class="col-12 d-flex align-items-center justify-content-between">
@@ -95,19 +95,13 @@
                     <!-- Sidebar Item Name -->
 
                     <!-- Sidebar Menu -->
-                    <div id="sidebar__menu" class="col-12">
-                        <ul class="slider_container menu_slider_container">
-                            <li><a class="link active" href="#" data-id="1">Details</a></li>
-                            <li><a class="link " href="#"  data-id="2">Share</a></li>
-                        </ul>
-                    </div>
+                    <!-- Menu Removed -->
                     <!-- Sidebar Menu -->
 
                     <!-- Sidebar Content -->
                     <div id="sidebar__content_1" class="sidebar__content active col-12 animated fadeIn">
                         <!-- Sidebar Content Div -->
-                        <div id="photos_div" class="content_div">
-                            <h5>Images</h5>
+                        <!-- <div id="photos_div" class="content_div">
                             <div id="news_rhs_image_container" class="content_div__container image_container">
                                 <div class="image_div">
                                     <a href="files/images/news.jpeg" data-lightbox="news">
@@ -115,55 +109,74 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Sidebar Content Div -->
                         <div id="generated_content">
                             <!-- Sidebar Content Div -->
                             <div class="content_div">
-                                <h5>Country</h5>
-                                <div class="content_div__container">
-                                    <p id="">India</p>
-                                </div>
+                                <div class="img_text_container">
+                                    <div class="card_img"><img src="files/images/1.jpeg" alt=""></div>
+                                    <div class="card_text">
+                                        <div class="card_heading">
+                                            <h5>Mythology</h5>
+                                        </div>
+                                        <div class="card_description">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, dolor.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card_expand_icon">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>       
                             </div>
                             <!-- Sidebar Content Div -->
+
                             <!-- Sidebar Content Div -->
                             <div class="content_div">
-                                <h5>Statehood</h5>
-                                <div class="content_div__container">
-                                    <p id="">1 November 1956</p>
-                                </div>
+                                <div class="img_text_container">
+                                    <div class="card_img"><img src="files/images/2.jpeg" alt=""></div>
+                                    <div class="card_text">
+                                        <div class="card_heading">
+                                            <h5>Pre-History</h5>
+                                        </div>
+                                        <div class="card_description">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo esse qui debitis nesciunt aliquam quam voluptatum inventore quae sed, consequuntur cupiditate, officia obcaecati, sunt dicta repellat quo quia? Voluptatibus, maxime!</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <div class="card_more_icon">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </div> -->
+                                    <div class="card_expand_icon">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>       
                             </div>
                             <!-- Sidebar Content Div -->
+
                             <!-- Sidebar Content Div -->
                             <div class="content_div">
-                                <h5>Capital</h5>
-                                <div class="content_div__container">
-                                    <p id="">Thiruvananthapuram</p>
-                                </div>
-                            </div>
-                            <!-- Sidebar Content Div -->
-                            <!-- Sidebar Content Div -->
-                            <div class="content_div">
-                                <h5>Population</h5>
-                                <div class="content_div__container">
-                                    <p id="">33,387,677</p>
-                                </div>
-                            </div>
-                            <!-- Sidebar Content Div -->
-                            <!-- Sidebar Content Div -->
-                            <div class="content_div">
-                                <h5>Demonym(s)</h5>
-                                <div class="content_div__container">
-                                    <p id="">Keralite, Keralan, Malayali</p>
-                                </div>
-                            </div>
-                            <!-- Sidebar Content Div -->
-                            <!-- Sidebar Content Div -->
-                            <div class="content_div">
-                                <h5>Website</h5>
-                                <div class="content_div__container">
-                                    <p id="read_time_text"><a href="">kerala.gov.in</a></p>
-                                </div>
+                                <div class="img_text_container">
+                                    
+                                    <div class="card_text">
+                                        <div class="card_heading">
+                                            <h5>Ancient Period</h5>
+                                            
+                                        </div>
+                                        <div class="card_description">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo esse qui debitis nesciunt aliquam quam voluptatum inventore quae sed, consequuntur cupiditate, officia obcaecati, sunt dicta repellat quo quia? Voluptatibus, maxime!</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <div class="card_more_icon">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </div> -->
+
+                                    <div class="card_expand_icon">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>       
                             </div>
                             <!-- Sidebar Content Div -->
                         </div>
@@ -171,23 +184,6 @@
                         
                     </div>
                     <!-- Sidebar Content -->
-
-
-                    <!-- Sidebar Content -->
-                    <div id="sidebar__content_2" class="sidebar__content col-12 animated fadeIn">
-                            <!-- Sidebar Content Div -->
-                            <div class="content_div">
-                                <h5>Share</h5>
-                                <div class="content_div__container">
-                                    <p id="summary_text">
-                                        <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Sidebar Content Div -->
-    
-                        </div>
-                        <!-- Sidebar Content -->
 
 
                 </div>       
