@@ -502,8 +502,12 @@ h1, h2, h3, h4, h5, h6 {
             }
 
             &.h_card {
-                width: 48%;
-                margin-right: 2%;
+                //min-width: 175px;
+                max-width: 215px;
+                display: inline-block;
+                margin-right: 10px;
+
+
 
                 .card_img {
                     width: 40%;
@@ -536,19 +540,34 @@ h1, h2, h3, h4, h5, h6 {
                     .card_text {
                         width:100%;
                     }
+
+                    .card_description {
+                        white-space: initial;
+                    }
                 }
+
             }
 
         }
 
         .horizontal_card_container {
-            
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
         }
 
         #mCSB_2_container {
             display: flex;
+            align-items: flex-start;
         }
     }
     /* Sidebar Content */
 }
 /*** Sidebar ***/
+
+//For dynamically loaded content, container
+.mCSB_horizontal.mCSB_outside>.mCSB_container {
+    min-height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
