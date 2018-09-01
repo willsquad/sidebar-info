@@ -82,7 +82,8 @@ $(document).ready(function(){
         }, 250));
 
       }); */
-    $window.on('resize scroll', function() {
+      
+    /* $window.on('resize scroll', function() {
 
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function() {
@@ -111,7 +112,6 @@ $(document).ready(function(){
                     var generated_content = '';
                     var i = 0;
                     for(var key in content_parse) {
-                        /* generated_content += '<div class="content_div animated fadeIn"><h5>'+key+'</h5><div class="content_div__container"><p id="">'+content_parse[key]+'</p></div></div>'; */
 
                         i = ++i;
 
@@ -128,7 +128,7 @@ $(document).ready(function(){
 
         }, 250));
 
-      });
+      }); */
 
 
     /* $(document).on('scroll', function(){
@@ -161,9 +161,14 @@ $(document).ready(function(){
         theme:"minimal-dark"
     });
 
-    $(".image_container").mCustomScrollbar({
+    $(".horizontal_card_container").mCustomScrollbar({
         axis: "x",
-        theme:"minimal-dark"
+        theme:"minimal-dark",
+        scrollInertia:0,
+        advanced:{
+            autoScrollOnFocus: false,
+            updateOnContentResize: true
+        }
     });
 
    /*  $("#sidebar__menu").mCustomScrollbar({

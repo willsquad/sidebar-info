@@ -501,6 +501,52 @@ h1, h2, h3, h4, h5, h6 {
                 margin-bottom: 0px;
             }
 
+            &.h_card {
+                width: 48%;
+                margin-right: 2%;
+
+                .card_img {
+                    width: 40%;
+                    padding: 0px 15px 0px 0px;
+                    transition: all 0.3s ease;
+                    img {
+                        min-height: 80px;
+                        max-height: 80px;
+                        width: 100%;
+                        object-fit: cover;
+                    } 
+                }
+    
+    
+                .card_text {
+                    width: 60%;
+                    //padding: 0px 0px 0px 15px;
+                    display: flex;
+                    flex-direction: column;
+                    transition: all 0.3s ease;
+                    //justify-content: space-between;
+                }
+
+                &.active {
+                    .card_img {
+                        width: 100%;
+                        padding-right: 0px;
+                    }
+
+                    .card_text {
+                        width:100%;
+                    }
+                }
+            }
+
+        }
+
+        .horizontal_card_container {
+            
+        }
+
+        #mCSB_2_container {
+            display: flex;
         }
     }
     /* Sidebar Content */
