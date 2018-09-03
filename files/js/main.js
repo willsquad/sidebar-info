@@ -83,7 +83,7 @@ $(document).ready(function(){
 
       }); */
       
-    $window.on('resize scroll', function() {
+/*     $window.on('resize scroll', function() {
 
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function() {
@@ -102,21 +102,14 @@ $(document).ready(function(){
 
     
                 if ($(this).isFullyInViewport()) {
-                    $('#sidebar__news_title').html(section);
-                    if(main_img != '') {
-                        $('#sidebar__image').show();
-                        $('#sidebar__image').find('img').attr('src', main_img);
-                    } else {
-                        $('#sidebar__image').hide();
-                    }
 
-                    console.log(content_parse);
+                    //console.log(content_parse);
 
                     var generated_content = '';
                     var i = 0;
                     for(var key in content_parse) {
                         
-                        console.log(typeof(content_parse[key]))
+                        //console.log(typeof(content_parse[key]))
 
                         i = ++i;
 
@@ -142,7 +135,6 @@ $(document).ready(function(){
                             
                         }
 
-                        /* generated_content += '<div class="content_div"><div class="img_text_container"><div class="card_img"><img src="files/images/'+i+'.jpeg" alt=""></div><div class="card_text"><div class="card_heading"><h5>'+key+'</h5></div><div class="card_description"><p>'+content_parse[key]+'</p></div></div><div class="card_expand_icon"><i class="fas fa-chevron-down"></i></div></div></div>'; */
                     }
                     //console.log(generated_content);
                     
@@ -168,23 +160,102 @@ $(document).ready(function(){
 
         
 
-      });
+      }); */
 
 
-    /* $(document).on('scroll', function(){
-        if($('#projects').visible(true)) {
-            console.log('Projects');
-        } else {
-            console.log('Not found');
-        }
+
+    /* var eTop = $('#content_lhs').offset().top; //get the offset top of the element
+    console.log(eTop - $(window).scrollTop()); //position of the ele w.r.t window
+    
+    $(window).scroll(function() { //when window is scrolled
+        console.log(eTop - $(window).scrollTop());
     }); */
 
-    /* $(document).on('click', '.card_expand_icon', function(){
-        var self = $(this);
+    /* $window.on('resize scroll', function() {
 
-        self.closest('.content_div').toggleClass('active');
-        self.find('i').toggleClass('fa-chevron-up fa-chevron-down');
+            $('.article_summary').each(function() {
+                var self = $(this);
+                
+                var eTop = self.offset().top; //get the offset top of the element
+                var position_top_para = eTop - $(window).scrollTop();
+
+                if(position_top_para>0) { //visible
+                    //console.log(position_top_para);
+                    //console.log(typeof(position_top_para));
+
+                    var generated_content = '';
+
+                    $('.more_info').each(function() {
+                        var self = $(this);
+                        var info_title = self.html();
+
+                        var eTop = self.offset().top; //get the offset top of the element
+                        var position_top_info = eTop - $(window).scrollTop();
+
+                        if(position_top_info>0) { //visible
+                            //console.log(position_top_info);
+                            //console.log(typeof(position_top_info));
+                            console.log(info_title);
+                            var generated_content = '<div';
+                        } else if(position_top_info<0) {
+                            console.log('info invisible');
+                        }
+                    });
+                } else if(position_top_para<0) {
+                    console.log('para invisible');
+                }
+                
+            });
+
     }); */
+
+    $window.on('resize scroll', function() {
+
+            $('.more_info').each(function() {
+                var self = $(this);
+                var keyword = self.html();
+
+                var content = self.data('info');
+                var content_parse = JSON.parse(content.replace(/'/g, '"'));
+
+                //console.log(content_parse);
+                
+                var eTop = self.offset().top; //get the offset top of the element
+                var position_top = eTop - $(window).scrollTop() - 90;
+
+                /* if(position_top>0) { //visible
+                    console.log(position_top);
+                    //console.log(typeof(position_top));
+                } else if(position_top<0) {
+                    console.log('Keyword invisible');
+                } */
+                if(self.isFullyInViewport()) {
+                    var generated_content = '';
+
+                    //console.log(content_parse.text);
+                    //console.log(content_parse.img);
+
+                    console.log(position_top);
+
+
+                    //if(typeof(content_parse[key]) == 'string') {
+                        generated_content += '<div class="content_div" style="position:relative; top:'+position_top+'px"><div class="img_text_container"><div class="card_img"><img src="'+content_parse.img+'" alt=""></div><div class="card_text"><div class="card_heading"><h5>'+keyword+'</h5></div><div class="card_description"><p>'+content_parse.text+'</p></div></div><div class="card_expand_icon"><i class="fas fa-chevron-down"></i></div></div></div>';
+                    //}
+
+
+                    generated_content += '</div>';
+
+                    //console.log(generated_content);
+                    $('#generated_content').html(generated_content);
+                }
+                
+            });
+
+            
+
+    });
+
+
 
 
     $(document).on('click', '.content_div', function(){
@@ -203,9 +274,10 @@ $(document).ready(function(){
 
     
 
-    $(".sidebar__content").mCustomScrollbar({
+    /* Custom Scrollbar */
+   /*  $(".sidebar__content").mCustomScrollbar({
         theme:"minimal-dark"
-    });
+    }); */
 
     $(".horizontal_card_container").mCustomScrollbar({
         axis: "x",
@@ -215,11 +287,6 @@ $(document).ready(function(){
             updateOnContentResize: true
         }
     });
-
-
-   /*  $("#sidebar__menu").mCustomScrollbar({
-        axis: "x",
-        theme:"minimal-dark"
-    }); */
+    /* Custom Scrollbar */
     
 });

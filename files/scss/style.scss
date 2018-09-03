@@ -353,9 +353,9 @@ h1, h2, h3, h4, h5, h6 {
     .sidebar__content {
         width: 100%;
         //min-height: 500px;
-        height: calc(100vh - 305px);
+        height: calc(100vh - 65px);
         padding: 25px 15px;
-        overflow-y: auto;
+        //overflow-y: auto;
         display: none;
         background-color: #E8E8E8;
 
