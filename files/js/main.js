@@ -221,7 +221,7 @@ $(document).ready(function(){
                 //console.log(content_parse);
                 
                 var eTop = self.offset().top; //get the offset top of the element
-                var position_top = eTop - $(window).scrollTop() - 90;
+                var position_top = eTop - $(window).scrollTop() - 75;
 
                 /* if(position_top>0) { //visible
                     console.log(position_top);
@@ -236,6 +236,13 @@ $(document).ready(function(){
                     //console.log(content_parse.img);
 
                     console.log(position_top);
+
+                    if(position_top >= 0) {
+                        position_top = position_top;
+
+                    } else if(position_top < 0) {
+                        position_top = 0;
+                    }
 
 
                     //if(typeof(content_parse[key]) == 'string') {
