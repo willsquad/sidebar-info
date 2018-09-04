@@ -359,6 +359,10 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
         background-color: #E8E8E8;
 
+        #generated_content {
+            position: relative;
+        }
+
         &.active {
             display: block;
         }
