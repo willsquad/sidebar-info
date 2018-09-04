@@ -209,28 +209,38 @@ $(document).ready(function(){
 
     }); */
 
-    generated_content = '';
+    generated_content = ''; // Do not remove this. Otherwise, it will display '[object HTMLDivElement]' on adding content in addition to the content (https://linustechtips.com/main/topic/293402-object-htmldivelement/).
 
-    $('.more_info').each(function() {
+
+    $('.more_info').each(function(i) { //parameter i has been passed for counting 'each' element
+        //$(this).data("serial", i);
+        //i++;
+
+        
         var self = $(this);
-        var keyword = self.html();
+
+        self.attr("data-serial", i); // counting (i) attached to the card. Start count from 0.
+        //console.log(i);
+
+        var keyword = self.html(); // get the keyword
 
         var content = self.data('info');
         var content_parse = JSON.parse(content.replace(/'/g, '"'));
 
-        var div_id = keyword.toLowerCase().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+        var div_id = keyword.toLowerCase().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-'); // create a unique id based on the keyword, only alphanumeric characters
 
         var eTop = self.offset().top; //get the offset top of the element
-        var position_top = eTop - $(window).scrollTop() - 75;
+        var position_top = eTop - $(window).scrollTop() - 120; //120: 65px+15px+40px (65px:Height of the Article title section at the top of the Sidebar + 15px:Padding of the sidear content + 40px: half the height of the Card
+        position_top = position_top - (i * 115); //120: 80px+15px+15px+(5px [optional additional padding]) (80px: Height of each card + 15px:margin-top + 15px:margin-bottom)
 
         //console.log(keyword);
         //console.log(self.offset());
         ///console.log($(window).scrollTop());
 
-        console.log(div_id+' : '+position_top);
+        //console.log(div_id+' : '+position_top);
 
         
-
+        // If position is greater than 0, don't change it, else set it to 0
         if(position_top >= 0) {
             position_top = position_top;
 
@@ -240,20 +250,25 @@ $(document).ready(function(){
         
         
         
-
+        // Cards generated on load
         generated_content += '<div class="content_div" id="'+div_id+'" style="position:relative; top:'+position_top+'px"><div class="img_text_container"><div class="card_img"><img src="'+content_parse.img+'" alt=""></div><div class="card_text"><div class="card_heading"><h5>'+keyword+'</h5></div><div class="card_description"><p>'+content_parse.text+'</p></div></div><div class="card_expand_icon"><i class="fas fa-chevron-down"></i></div></div></div>';
 
-
+        // Cards generated on load added to the sidebar
         $('#generated_content').html(generated_content);
+
     });
 
     $window.on('resize scroll', function() {
 
-            $('.more_info').each(function() {
+            $('.more_info').each(function(i) { //parameter i has been passed for counting 'each' element
                 var self = $(this);
-                var keyword = self.html();
 
-                var div_id = keyword.toLowerCase().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+                self.attr("data-serial", i); // counting (i) attached to the card. Start count from 0.
+                //console.log(i);
+
+                var keyword = self.html(); //get the keyaord
+
+                var div_id = keyword.toLowerCase().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-'); // create the unique id based on the keyword, only alphanumeric characters for matching with the ids created while LOADING the page
 
                 //var content = self.data('info');
                 //var content_parse = JSON.parse(content.replace(/'/g, '"'));
@@ -261,7 +276,8 @@ $(document).ready(function(){
                 //console.log(content_parse);
                 
                 var eTop = self.offset().top; //get the offset top of the element
-                var position_top = eTop - $(window).scrollTop() - 75;
+                var position_top = eTop - $(window).scrollTop() - 120; //120: 65px+15px+40px (65px:Height of the Article title section at the top of the Sidebar + 15px:Padding of the sidear content + 40px: half the height of the Card
+                position_top = position_top - (i * 115); //120: 80px+15px+15px+(5px [optional additional padding]) (80px: Height of each card + 15px:margin-top + 15px:margin-bottom)
 
                 //console.log(self.offset());
                 //console.log($(window).scrollTop());
@@ -280,17 +296,18 @@ $(document).ready(function(){
 
                     // /console.log(position_top);
 
-                    if(position_top >= 0) {
-                        position_top = position_top;
+                // If position is greater than 0, don't change it, else set it to 0
+                if(position_top >= 0) {
+                    position_top = position_top;
+        
+                } else if(position_top < 0) {
+                    position_top = 0;
+                }
 
-                    } else if(position_top < 0) {
-                        position_top = 0;
-                    }
+                //console.log(position_top);
+                //console.log(div_id+' : '+position_top);
 
-                    //console.log(position_top);
-                    console.log(div_id+' : '+position_top);
-
-                    $('#'+div_id).css({'position':'relative','top':position_top+'px'});
+                $('#'+div_id).css({'position':'relative','top':position_top+'px'});
 
 
                     //if(typeof(content_parse[key]) == 'string') {
@@ -330,9 +347,9 @@ $(document).ready(function(){
     
 
     /* Custom Scrollbar */
-   /*  $(".sidebar__content").mCustomScrollbar({
+    $(".sidebar__content").mCustomScrollbar({
         theme:"minimal-dark"
-    }); */
+    });
 
     $(".horizontal_card_container").mCustomScrollbar({
         axis: "x",
@@ -353,6 +370,6 @@ $(document).ready(function(){
 
     more_text();
     more_text();
-    more_text();
-    more_text();
+    //more_text();
+    //more_text();
 });
