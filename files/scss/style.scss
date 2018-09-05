@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
             padding: 10px;
             //min-height: 100px;
             border-radius: 4px;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease;
             cursor: pointer;
 
             &.active {
@@ -467,6 +467,8 @@ h1, h2, h3, h4, h5, h6 {
             .card_heading {
                 margin-bottom: 10px;
                 position: relative;
+                height: 26px;
+                overflow: hidden;
             }
 
             .card_description {
