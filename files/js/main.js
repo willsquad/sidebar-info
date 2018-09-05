@@ -331,19 +331,53 @@ $(document).ready(function(){
 
 
 
-            /*var content_div_count = 0;
+            //var content_div_count = 0;
             
             $('.content_div').each(function() {
+                var self = $(this);
+
+                var serial = self.attr("data-serial");
+
+                
+
                 if ($(this).isFullyInViewport()) {
-                   content_div_count++;
+                   //content_div_count++;
+                   console.log(serial);
+                   
+
+                   var mq = window.matchMedia( "(max-width: 1368px)" );
+                    if (mq.matches) {
+                        // window width is at less than 1367px
+                        serial_difference = serial - 4;
+                        if(serial - 0 >=5 ) {
+                            $(".sidebar__content").mCustomScrollbar('scrollTo', '#content_'+serial_difference);
+                       } else if(serial - 0 < 4 ) {
+                            $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
+                       }
+                    }
+                    else {
+                        // window width is greater than 1367px
+                        serial_difference = serial - 5;
+                        if(serial - 0 >=6 ) {
+                            $(".sidebar__content").mCustomScrollbar('scrollTo', '#content_'+serial_difference);
+                       } else if(serial - 0 < 5 ) {
+                            $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
+                       }
+                    }
+
+                   
                 } 
             });
             
-            console.log(content_div_count);*/
+            /* console.log(content_div_count);
 
-           /*  if(content_div_count > 6) {
-                $(".sidebar__content").mCustomScrollbar('scrollTo', '#content_1');
-            }  */
+            if(content_div_count >= 5) {
+                $(".sidebar__content").mCustomScrollbar('scrollTo', '-=115');
+            } else if (content_div_count < 5) {
+                $(".sidebar__content").mCustomScrollbar('scrollTo', '+=115');
+            } else if (content_div_count < 4) {
+                $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
+            } */
     });
 
 
