@@ -253,11 +253,16 @@ $(document).ready(function(){
             position_top = 0;
         }
         
-        
+
+        if(content_parse.img != '') {
+            generated_img_div = '<div class="card_img"><img src="'+content_parse.img+'" alt=""></div>';
+        } else {
+            generated_img_div = '';
+        }
         
         
         // Cards generated on load
-        generated_content += '<div class="content_div" id="content_'+i+'" data-serial="'+i+'" style="position:relative; top:'+position_top+'px"><div class="img_text_container"><div class="card_img"><img src="'+content_parse.img+'" alt=""></div><div class="card_text"><div class="card_heading"><h5>'+keyword+'</h5></div><div class="card_description"><p>'+content_parse.text+'</p></div></div><div class="card_expand_icon"><i class="fas fa-chevron-down"></i></div></div></div>';
+        generated_content += '<div class="content_div" id="content_'+i+'" data-serial="'+i+'" style="position:relative; top:'+position_top+'px"><div class="img_text_container">'+generated_img_div+'<div class="card_text"><div class="card_heading"><h5>'+keyword+'</h5></div><div class="card_description"><p>'+content_parse.text+'</p></div></div><div class="card_expand_icon"><i class="fas fa-chevron-down"></i></div></div></div>';
 
         // Cards generated on load added to the sidebar
         $('#generated_content').html(generated_content);
