@@ -1,16 +1,23 @@
 $(document).ready(function(){
 
-    $/* ('.link').on('click', function(e){
-        e.preventDefault();
-        var self = $(this);
-        var id = self.attr('data-id');
-
-        $('.link').removeClass('active');
-        self.addClass('active');
-
-        $('.sidebar__content').removeClass('active');
-        $('#sidebar__content_'+id).addClass('active');
-    }); */
+    /* Offscreen check */
+    $.extend($.expr[':'], {
+        'off-top': function(el) {
+            return $(el).offset().top < $(window).scrollTop();
+        },
+        'off-right': function(el) {
+            return $(el).offset().left + $(el).outerWidth() - $(window).scrollLeft() > $(window).width();
+        },
+        'off-bottom': function(el) {
+            return $(el).offset().top + $(el).outerHeight() - $(window).scrollTop() > $(window).height();
+        },
+        'off-left': function(el) {
+            return $(el).offset().left < $(window).scrollLeft();
+        },
+        'off-screen': function(el) {
+            return $(el).is(':off-top, :off-right, :off-bottom, :off-left');
+        }
+    });
 
     /* Visibility Check */
     $.fn.isFullyInViewport = function() {
@@ -27,7 +34,7 @@ $(document).ready(function(){
         var element = this.get(0);
         var bounds = element.getBoundingClientRect();
         return bounds.top < window.innerHeight && bounds.bottom > 0;
-    }
+    };
 
    /*  $.fn.isInViewport = function() {
         var elementTop = $(this).offset().top;
@@ -318,9 +325,10 @@ $(document).ready(function(){
                 } */
 
                 // If position is GREATER than or EQUAL TO 100px (single card height), don't change it, else set it to 0
+                position_top_non_zero = position_top;
+
                 if(position_top >= 100) {
                     position_top = position_top;
-
                 } else if(position_top < 100) {
                     position_top = 0;
                 }
@@ -329,16 +337,62 @@ $(document).ready(function(){
                 //console.log(div_id+' : '+position_top);
 
                 // Modify the position based on the ID of the RHS '.content_div's
-                $('#content_'+i).css({'position':'relative','top':position_top+'px'});
+
+                //console.log('content_'+i+' : '+position_top);
+
+                //$('#content_'+i).css({'position':'relative','top':position_top+'px'});
+
+                $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
+
+                if((self).is(':off-top')) {
+                    //console.log('position_top_non_zero'+i+ ' : '+position_top_non_zero);
+                    //$('#content_'+i).hide();
+                    $('#content_'+i).css({'position':'absolute','top':-500+'px'});
+                    //$('#content_'+i).css({'display':'none'});
+                    //$('#content_'+i).fadeOut();
+                } else {
+                    //$('#content_'+i).show();
+                    $('#content_'+i).css({'position':'relative','top':position_top+'px'});
+                    //$('#content_'+i).css({'display':'block'});
+                    //$('#content_'+i).fadeIn();
+                }
+                
+
+               // $(".sidebar__content").mCustomScrollbar('scrollTo', '#content_'+i);
+
+
+                /* var scroll_top = $(window).scrollTop();
+                if (self.offset().top >= scroll_top && self.is(':visible')){
+                    console.log(keyword);
+                } */
                        
             });
+
+            //console.log($(window).scrollTop());
+
+            /* var scroll_top = $(window).scrollTop();
+            var elements = $(".more_info");
+            var el;
+            for (var i=0; i<elements.length; i++) {
+                el = $(elements[i]);
+                console.log(el+' : '+el.offset().top);
+                if (el.offset().top >= scroll_top && el.is(':visible')){
+                    // "el" is the first visible element here!
+                    // Do something fancy with it
+
+                    
+
+                    // Quit the loop
+                    break;
+                }
+            } */
 
 
 
 
             //var content_div_count = 0;
             
-            $('.content_div').each(function() {
+            /* $('.content_div').each(function() {
                 var self = $(this);
 
                 var serial = self.attr("data-serial");
@@ -372,7 +426,7 @@ $(document).ready(function(){
 
                    
                 } 
-            });
+            }); */
             
             /* console.log(content_div_count);
 
@@ -392,8 +446,31 @@ $(document).ready(function(){
         var self = $(this);
 
         //$('.content_div').removeClass('active');
-        self.toggleClass('active');
+        //self.toggleClass('active');
+
+        if(self.hasClass('active')) {
+            $('.content_div').removeClass('active');
+        } else {
+            $('.content_div').removeClass('active');
+            self.addClass('active');
+        }
+
         self.find('i').toggleClass('fa-chevron-up fa-chevron-down');
+    });
+
+
+    
+    $(document).on('click', '.more_info', function(e){
+        e.preventDefault();
+        var self = $(this);
+        
+        var serial = self.attr('data-serial');
+
+        //$(".sidebar__content").mCustomScrollbar('scrollTo', '#content_'+serial);
+
+        $("#content_"+serial).click();
+        
+        //$(".sidebar__content").mCustomScrollbar('scrollTo', '#content_'+serial);
     });
 
     $(document).on('click', '.h_card', function(){
@@ -427,7 +504,7 @@ $(document).ready(function(){
     }
 
     more_text();
-    more_text();
+    //more_text();
     //more_text();
     //more_text();
 });
