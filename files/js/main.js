@@ -602,7 +602,7 @@ $(document).ready(function(){
         $("#article_end").append(more_html);
     }
 
-    more_text();
+    //more_text();
     //more_text();
     //more_text();
     //more_text();
