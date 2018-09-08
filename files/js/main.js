@@ -433,14 +433,17 @@ $(document).ready(function(){
 
                 //console.log('content_'+i+' : '+position_top);
 
-                //$('#content_'+i).css({'position':'relative','top':position_top+'px'});
+                $('#content_'+i).css({'position':'relative','top':position_top+'px'});
 
                 $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
 
                 if((self).is(':off-top')) {
                     //console.log('position_top_non_zero'+i+ ' : '+position_top_non_zero);
                     //$('#content_'+i).hide();
+
                     $('#content_'+i).css({'position':'absolute','top':-500+'px'});
+                    
+
                     //$('#content_'+i).css({'display':'none'});
                     //$('#content_'+i).fadeOut();
                 } else {
@@ -592,7 +595,7 @@ $(document).ready(function(){
     /* Custom Scrollbar */
 
     /* Change scrollspeed (step in px, duration in ms)*/
-    jQuery.scrollSpeed(50, 1000);
+    jQuery.scrollSpeed(100, 1000);
     /* Change scrollspeed */
     
 

@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 /*** Sidebar ***/
 #sidebar {
     height: 100vh;
-    background-color: #fff;
+    background-color: #E8E8E8;
     position: fixed;
     right: 0;
     //box-shadow: rgba(0,0,0,0.1) 0px 0px 40px 0px;
@@ -225,6 +225,7 @@ h1, h2, h3, h4, h5, h6 {
         height: 65px;
         padding: 20px;
         box-shadow: rgba(0,0,0,0.1) 0px 0px 5px 0px;
+        background-color: #fff;
 
         #category_name {
             h2 {
@@ -366,10 +367,12 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         //min-height: 500px;
         height: calc(100vh - 65px);
-        padding: 15px;
+        padding: 0px 15px 15px 15px;
         //overflow-y: auto;
+        overflow-y: hidden;
         display: none;
         background-color: #E8E8E8;
+        margin-top: 15px;
 
         #generated_content {
             position: relative;
@@ -387,6 +390,7 @@ h1, h2, h3, h4, h5, h6 {
             border-radius: 4px;
             transition: all 1s ease-in-out;
             cursor: pointer;
+            position: relative;
 
             &.active {
                 height: auto;
