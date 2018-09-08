@@ -118,6 +118,44 @@ h1, h2, h3, h4, h5, h6 {
     -o-animation: rotating 2s linear infinite;
     animation: rotating 2s linear infinite;
 }
+
+@keyframes display-none-transition {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes moveUp {
+    0% {
+        top:0px;
+    }
+    100% {
+        position: absolute;
+        top: -500px;
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        
+        position: absolute;
+        top: -500px;
+    }
+    100% {
+        position: relative;
+        top:0px;
+    }
+}
+
+
+@keyframes displaceUp {
+    0% {
+        top:0px;
+    }
+    100% {
+        top:0px;
+    }
+}
 /* ANIMATIONS  */
 
 
@@ -388,9 +426,16 @@ h1, h2, h3, h4, h5, h6 {
             padding: 10px;
             //min-height: 100px;
             border-radius: 4px;
-            transition: all 1s ease-in-out;
+            transition: all 1s ease;
+            opacity: 1;
             cursor: pointer;
             position: relative;
+            animation: moveDown 1.5s both;
+
+            &.remove {
+                animation: moveUp 1.5s both;
+                //display: none;
+            }
 
             &.active {
                 height: auto;

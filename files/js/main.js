@@ -311,8 +311,7 @@ $(document).ready(function(){
 
     var generated_content = ''; // Do not remove this. Otherwise, it will display '[object HTMLDivElement]' on adding content in addition to the content (https://linustechtips.com/main/topic/293402-object-htmldivelement/).
 
-    var each_compare = [];
-
+    
     $('.more_info').each(function(i) { //parameter i has been passed for counting 'each' element
         //$(this).data("serial", i);
         //i++;
@@ -373,6 +372,10 @@ $(document).ready(function(){
 
     $window.on('resize scroll', function() {
 
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            // Haven't scrolled in 250ms
+
             $('.more_info').each(function(i) { //parameter i has been passed for counting 'each' element
                 var self = $(this);
 
@@ -420,9 +423,9 @@ $(document).ready(function(){
                 // If position is GREATER than or EQUAL TO 100px (single card height), don't change it, else set it to 0
                 position_top_non_zero = position_top;
 
-                if(position_top >= 100) {
+                if(position_top >= 250) {
                     position_top = position_top;
-                } else if(position_top < 100) {
+                } else if(position_top < 250) {
                     position_top = 0;
                 }
 
@@ -431,7 +434,7 @@ $(document).ready(function(){
 
                 // Modify the position based on the ID of the RHS '.content_div's
 
-                //console.log('content_'+i+' : '+position_top);
+                //console.log(keyword+' : '+position_top);
 
                 $('#content_'+i).css({'position':'relative','top':position_top+'px'});
 
@@ -441,17 +444,18 @@ $(document).ready(function(){
                     //console.log('position_top_non_zero'+i+ ' : '+position_top_non_zero);
                     //$('#content_'+i).hide();
 
-                    $('#content_'+i).css({'position':'absolute','top':-500+'px'});
+                    //$('#content_'+i).css({'position':'absolute','top':-500+'px'});
                     
 
-                    //$('#content_'+i).css({'display':'none'});
+                    $('#content_'+i).addClass('remove');
+                    //$('#content_'+i).css({'display':'none', 'opacity': '0'});
                     //$('#content_'+i).fadeOut();
                 } else {
                     //$('#content_'+i).show();
                     
                     $('#content_'+i).css({'position':'relative','top':position_top+'px'});
-                    
-                    //$('#content_'+i).css({'display':'block'});
+                    $('#content_'+i).removeClass('remove');
+                    //$('#content_'+i).css({'display':'block', 'opacity': '1'});
                     //$('#content_'+i).fadeIn();
                 }
                 
@@ -535,6 +539,7 @@ $(document).ready(function(){
             } else if (content_div_count < 4) {
                 $(".sidebar__content").mCustomScrollbar('scrollTo', 'top');
             } */
+        }, 0));
     });
 
 
@@ -595,7 +600,7 @@ $(document).ready(function(){
     /* Custom Scrollbar */
 
     /* Change scrollspeed (step in px, duration in ms)*/
-    jQuery.scrollSpeed(100, 1000);
+    jQuery.scrollSpeed(50, 1000);
     /* Change scrollspeed */
     
 
